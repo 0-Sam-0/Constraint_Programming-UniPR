@@ -1,0 +1,287 @@
+\documentclass[11pt]{article}
+% Basic packages
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{hyperref}
+% Mathematical packages
+\usepackage{amsmath,amssymb,amsthm}
+% Layout and formatting packages
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+% Color and box packages
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems,skins,breakable}
+% Page settings
+\geometry{margin=2.5cm}
+% Header settings
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Constraint Programming}
+\fancyhead[R]{\thepage}
+% Title customization
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+
+% Colored environment definitions (without automatic numbering)
+\newtcolorbox{theorem}[2][]{
+enhanced,
+colback=blue!5,
+colframe=blue!70!black,
+fonttitle=\bfseries,
+rounded corners,
+title={Teorema: #2},
+#1
+}
+
+\newtcolorbox{definition}[2][]{
+enhanced,
+colback=teal!5,
+colframe=teal!70!black,
+fonttitle=\bfseries,
+rounded corners,
+title={Definizione: #2},
+#1
+}
+
+\newtcolorbox{lemma}[2][]{
+enhanced,
+colback=gray!10,
+colframe=gray!70!black,
+fonttitle=\bfseries,
+rounded corners,
+title={Lemma: #2},
+#1
+}
+
+\newtcolorbox{example}[2][]{
+enhanced,
+colback=green!8,
+colframe=green!60!black,
+fonttitle=\bfseries,
+rounded corners,
+title={Esempio: #2},
+#1
+}
+
+\newtcolorbox{question}[2][]{
+enhanced,
+colback=red!5,
+colframe=red!70!black,
+fonttitle=\bfseries,
+rounded corners,
+title={Domanda: #2},
+#1
+}
+
+\newtcolorbox{note}[2][]{
+enhanced,
+colback=violet!8,
+colframe=violet!60!black,
+fonttitle=\bfseries,
+rounded corners,
+title={Nota: #2},
+#1
+}
+
+\newtcolorbox{problem}[2][]{
+enhanced,
+colback=orange!8,
+colframe=orange!70!black,
+fonttitle=\bfseries,
+rounded corners,
+title={Problema: #2},
+segmentation style={dashed,orange!70!black,line width=1pt},
+#1
+}
+
+% Custom commands
+%\newcommand{\calU}{\mathcal{U}}
+% Spacing settings
+\setlength{\parindent}{0pt}      % No indentation
+\setlength{\parskip}{1em}        % Space between paragraphs
+
+% Usage examples:
+% 
+% \begin{theorem}{Nome del teorema}
+% Testo del teorema
+% \end{theorem}
+% 
+% \begin{definition}{Nome della definizione}
+% Testo della definizione
+% \end{definition}
+% 
+% \begin{lemma}{Nome del lemma}
+% Testo del lemma
+% \end{lemma}
+%
+% \begin{example}{Nome dell'esempio}
+% Testo dell'esempio
+% \end{example}
+%
+% \begin{question}{Nome della domanda}
+% Testo della domanda
+% \end{question}
+%
+% \begin{note}{Titolo della nota}
+% Testo della nota
+% \end{note}
+%
+% \begin{problem}{Nome del problema}
+% Testo del problema da risolvere
+% \tcblower
+% \textbf{Soluzione:} Spiegazione della soluzione
+% \end{problem}
+%
+
+\begin{document}
+
+% Titolo
+\begin{center}
+    \LARGE \textbf{Constraint Programming}
+\end{center}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\tableofcontents
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\section{Lezione 1 - 18/09/2023}
+\subsection{ACM-IEEE: IS - Intelligent Systems}
+    AI is the study of solutions for problems that are difficult or impractical to solve with traditional methods. The solutions rely on a broad set of:
+    \begin{itemize}
+        \item general and specialized knowledge representation schemes
+        \item problem solving mechanisms
+        \item learning techniques
+    \end{itemize}
+
+    12 subareas:
+    $$\begin{array}{ll}
+        \color{orange}\text{IS/Fundamental ISSUES}  &  \text{IS/Basic Machine Learning} \\
+        \color{orange}\text{IS/Basic Knowledge Representation and Reasoning} & \text{IS/Advanced Machine Learning} \\
+        \color{orange}\text{IS/Basic Search Strategies} & \text{IS/Reasoning Under Uncertainty} \\
+        \color{orange}\text{IS/Advanced Search} & \text{IS/Natural Language Processing} \\
+        \text{IS/Advanced Representation and Reasoning} & \text{IS/Robotics} \\
+        \text{IS/Agents} & \text{IS/Perception and Computer Vision}
+    \end{array}$$
+
+    \textcolor{orange}{IS/Fundamental ISSUES}
+    \begin{itemize}
+        \item Overview of AI problems, examples of successful recent AI applications
+    \end{itemize}
+    
+    \textcolor{orange}{IS/Basic Knowledge Representation and Reasoning}
+    \begin{itemize}
+        \item Review of propositional and predicate logic
+        \item Resolution and theorem proving
+    \end{itemize}
+
+    \textcolor{orange}{IS/Basic Search Strategies}
+    \begin{itemize}
+        \item Problem spaces (states, goals and operators), problem solving by search
+        \item Factored representation (factoring state into variables)
+        \item Uninoformed search (breadth-first, depth-first, depth-first with iterative deepening)
+        \item Heuristics and informed search (hill-climbing, generic best-first, A*)
+        \item Space and time efficiecy of search
+        \item Constraint satisfaction (backtracking and local search methods)
+    \end{itemize}
+
+    \textcolor{orange}{IS/Advanced Search}
+    \begin{itemize}
+        \item Global constraints
+        \item Large Neighborhood Search
+        \item (Parallelism)
+    \end{itemize}
+
+    See conferences: \href{iclp25.demacs.unical.it}{ICLP}, \href{cp2025.a4cp.org}{CP}, \href{2025.ijcai.org}{IJCAI}
+
+\subsection{Introduction}
+    CP is a declarative programming paradigm suited for modeling and solving complex problems. Problem modeling and solution searching are clearly separated and typically the code is very readable and easy to modify.
+    
+    You don't have restrictions on the kind of constraints.
+    Solution search is natural to parallelize and search heuristics are crucial.
+
+\subsection{The future of xAI}
+    Thanks to the growth of computing resources, the learning capability of artificial intelligence has made the subsymbolic approach very popular. On a larger scale, an exponential phenomenon is complex to handle.
+
+    Furthermore, one of the current concerns is the amount of energy required to train the models.
+
+    \subsubsection{EU AI ACT}
+        In 2024, the EU published the world's first law comprehensively regulating AI. They have developed a set of rules for scenarios that serve as guidelines so that people can develop and use AI.
+
+        \begin{enumerate}
+            \item AI definition
+            \item Forbidden activities: social scoring, remote biometrics, subliminal methods / fragile people
+            \item Risk based classification of AI:
+                \begin{itemize}
+                    \item Medical and legal applications and scoring (students, financial, CV) are High Risk
+                \end{itemize}
+        \end{enumerate}
+
+        GenAI is not explicitly included in AI Act.
+        
+        New issues:
+        \begin{itemize}
+            \item Copyright
+            \item Bulk data retrieval
+            \item Legal liability for generated output
+            \item Embedding into other services (API)
+        \end{itemize}
+
+    \subsubsection{GenAI Risks}
+        \textbf{Bias}: AI learns from unbalanced datasets $\rightarrow$ this is our society $\rightarrow$ discriminations
+
+        \textbf{Blackbox}:
+        \begin{itemize}
+            \item Algorithms / training dataset not available
+            \item Can't analyze the trained network (propietary)
+            \item Even if available $\rightarrow$ trilions of parameters
+        \end{itemize}
+
+        \textbf{Improper usage}: AI for a specific and unruled task (e.g. fake news)
+
+    \subsubsection{Explainable AI}
+        Ethical principles to include AI in the decisional chain:
+        \begin{itemize}
+            \item System's trust
+            \item Compliance to standards/directives
+            \item Bias control
+            \item Incremental improving
+        \end{itemize}
+
+        How?
+        \begin{itemize}
+            \item Explainability allows to understand how/why I get that answer
+            \item Transparency and interpretability (access to algorithms and data)
+            \item Logical proof
+        \end{itemize}
+
+        Creating new AI to explain AI is like creating blackbox to explain blackbox. A solution could be Native Explainability.
+
+    \subsubsection{Two joining paths}
+        $\begin{array}{ll}
+            \textbf{ML}   &   \textbf{Symbolic AI} \\
+            \text{Learns easily}    &  \text{Knowledge representation} \\
+            \text{No programming}   &   \text{Programming (e.g. constraints)} \\
+            \text{Blackbox} &   \text{Natively explainable} \\
+            \text{Expensive training}   &   \text{Expensive computation} \\
+            \text{Syntax level} &   \text{Semantic level} \\
+            \text{Probability for next token}   &   \text{Relations on objects} \\
+            \text{NL expressions patterns}  &   \text{Similar to human deduction} \\
+            \text{Somehow captures a certain semantica} &   \text{Can explain ML?}
+        \end{array}$
+        
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\section{Lezione 2 - 20/09/2023}
+
+\end{document}
